@@ -1,0 +1,27 @@
+{% extends "reporter/base.html" %}
+
+{% block content %}
+
+    <h2>Reports</h2>
+    <ul>
+        {% for report in reports %}
+            <section>
+                <li>
+                    <img
+                        class="banner"
+                        src="{{report.image.url}}"
+                        alt="report image"
+                    />
+                    <p>{{report.report_type}}</p>
+                    <p>Coordinates: {{report.location_lat}}, {{report.location_lon}}</p>
+                    <p>Reported on: {{report.reported_at}}</p>
+                    <p>Description: {{report.report_description | linebreaks}}</p>
+                </li>
+            </section>
+        {% empty %}
+            <li>No reports have been reported yet</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url "reporter:new_report" %}">Add a new report</a>
+
+{% endblock content %}
