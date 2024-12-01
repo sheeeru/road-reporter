@@ -17,7 +17,8 @@ def map_view(request):
     # add a marker to the map for each report
     for report in all_reports:
         coordinates = (report.location_lat, report.location_lon)
-        folium.Marker(coordinates, popup=report.report_type).add_to(my_map)
+        popup_content = f"Report: {report.report_type}<br>Resolved: {'Yes' if report.is_resolved else 'No'}"
+        folium.Marker(coordinates, popup=popup_content).add_to(my_map)
 
     context = {'map': my_map._repr_html_()}
     return render(request, 'reporter/map_view.html', context)
