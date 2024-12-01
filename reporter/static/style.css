@@ -46,10 +46,36 @@ a:hover {
     opacity: .85;
 }
 
+.small-link {
+    font-size: 1rem; /* Adjust the size as needed */
+    padding: 0.5rem 1rem;
+    background-color: #44B78B;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    display: inline-block;
+}
+
+.small-link:hover {
+    background-color: #369f6e;
+    opacity: 0.85;
+}
+
+.spaced-paragraph {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+#map-container {
+    width: 600px; /* Set the desired width */
+    height: 400px; /* Set the desired height */
+    margin: 0 auto; /* Center the map */
+}
+
 .banner {
     display: block;
-    width: 100%;
-    max-width: 400px;
+    /* max-width: 400px; */
+    width: 100px;
+    height: 100px;
 }
 
 .form-with-validation {
@@ -60,6 +86,8 @@ a:hover {
     flex-flow: column;
     gap: 1rem;
 }
+
+
 
 .form-with-validation div {
     display: flex;

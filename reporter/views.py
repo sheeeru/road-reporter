@@ -1,10 +1,26 @@
 from django.shortcuts import render, redirect
 from .models import Report
 from .forms import ReportForm
+import folium
 
 # Create your views here.
 def index(request):
+
     return render(request, 'reporter/index.html')
+
+def map_view(request):
+    all_reports = Report.objects.all()
+
+    # create a folium map centered on Karachi
+    my_map = folium.Map(location=[24.916452, 67.042635], zoom_start=10)
+
+    # add a marker to the map for each report
+    for report in all_reports:
+        coordinates = (report.location_lat, report.location_lon)
+        folium.Marker(coordinates, popup=report.report_type).add_to(my_map)
+
+    context = {'map': my_map._repr_html_()}
+    return render(request, 'reporter/map_view.html', context)
 
 def reports(request):
     """Show all reports."""

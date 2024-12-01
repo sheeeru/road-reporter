@@ -2,5 +2,8 @@
 
 
 {% block content %}
-<p>Helps you report road hazards to relevant authorites</p>
+
+<p class="spaced-paragraph">Helps you report road hazards to relevant authorites</p>
+
+<a class="small-link" href="{% url "reporter:new_report" %}">Add a new report</a>
 {% endblock content %}
