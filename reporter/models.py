@@ -4,9 +4,9 @@ from django.db import models
 class Report(models.Model):
     # Types of reports as choices
     REPORT_TYPE_CHOICES = [
-        ('pothole', 'Pothole'),
-        ('speed_breaker', 'Unmarked Speed-breaker'),
-        ('standing_water', 'Standing Water'),
+        ('Pothole', 'Pothole'),
+        ('Speed Breaker', 'Unmarked Speed-breaker'),
+        ('Standing Water', 'Standing Water'),
     ]
 
 
